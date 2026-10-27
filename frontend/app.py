@@ -81,7 +81,7 @@ response_type = st.radio(
 
 query = st.text_input(
     "Your question",
-    placeholder="e.g., What is the waiting period for hospitalization?"
+    placeholder="e.g., What is the pet fee at ASH-CHI Loop?"
 )
 
 
@@ -125,18 +125,18 @@ if st.button("Submit", type="primary"):
                 if response_type == "Answer only":
 
                     st.subheader("Answer")
-                    st.write(result["answer"])
+                    st.text(result["answer"])
 
                 # -- Answer + Relevant Chunks -------------------
                 else:
 
                     st.subheader("Answer")
-                    st.write(result["answer"])
+                    st.text(result["answer"])
 
                     st.subheader("Relevant Chunks")
                     for i, chunk in enumerate(result["relevant_chunks"], start=1):
                         with st.expander(f"Chunk {i}"):
-                            st.write(chunk)
+                            st.text(chunk)
 
             else:
                 st.error(
